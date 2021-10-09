@@ -76,4 +76,10 @@ public interface Loader extends Serializable {
      * @return dependencies files
      */
     List<String> getRemoteDependencies();
+
+
+    /**
+     * @return a set with all exporters selected in the configuration file.
+     */
+    Set<GenericExporter> getExporters();
 }
