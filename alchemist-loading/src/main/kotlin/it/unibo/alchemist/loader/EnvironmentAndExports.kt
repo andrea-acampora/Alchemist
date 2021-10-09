@@ -9,8 +9,6 @@
 
 package it.unibo.alchemist.loader
 
-import it.unibo.alchemist.loader.export.Extractor
-import it.unibo.alchemist.loader.export.GenericExporter
 import it.unibo.alchemist.model.interfaces.Environment
 import it.unibo.alchemist.model.interfaces.Position
 
@@ -22,5 +20,5 @@ data class EnvironmentAndExports<T, P : Position<P>>(
     override val environment: Environment<T, P>,
 
     override val  exporters: List<GenericExporter<T,P>>
-    
+
 ) : InitializedEnvironment<T, P>
