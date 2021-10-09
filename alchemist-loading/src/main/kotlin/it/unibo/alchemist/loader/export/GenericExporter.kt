@@ -7,8 +7,6 @@
  * as described in the file LICENSE in the Alchemist distribution's top directory.
  */
 
-package it.unibo.alchemist.loader.export
-
 import it.unibo.alchemist.model.interfaces.Position
 
 /**
@@ -23,5 +21,7 @@ interface GenericExporter<T, P : Position<P>> {
      */
     fun exportData()
 
+
     fun closeExportEnvironment()
 }
+
