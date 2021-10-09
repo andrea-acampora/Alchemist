@@ -12,6 +12,7 @@ import it.unibo.alchemist.model.interfaces.Position
 /**
  * A generic exporter for the simulation.
  */
+
 interface GenericExporter<T, P : Position<P>> {
 
     fun setupExportEnvironment()
