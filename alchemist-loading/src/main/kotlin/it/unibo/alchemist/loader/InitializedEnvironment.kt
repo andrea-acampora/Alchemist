@@ -9,7 +9,7 @@
 
 package it.unibo.alchemist.loader
 
-import GenericExporter
+import it.unibo.alchemist.loader.export.GenericExporter
 import it.unibo.alchemist.model.interfaces.Environment
 import it.unibo.alchemist.model.interfaces.Position
 
