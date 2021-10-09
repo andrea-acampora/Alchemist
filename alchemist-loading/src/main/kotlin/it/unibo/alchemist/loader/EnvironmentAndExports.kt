@@ -18,7 +18,9 @@ import it.unibo.alchemist.model.interfaces.Position
  * Pair-like implementation of [InitializedEnvironment].
  */
 data class EnvironmentAndExports<T, P : Position<P>>(
+
     override val environment: Environment<T, P>,
 
     override val  exporters: List<GenericExporter<T,P>>
+
 ) : InitializedEnvironment<T, P>
