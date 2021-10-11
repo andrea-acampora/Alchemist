@@ -408,3 +408,36 @@ val orchidSeedConfiguration by tasks.register("orchidSeedConfiguration") {
     }
 }
 tasks.orchidClasses.orNull!!.dependsOn(orchidSeedConfiguration)
+
+val alchemistGroup = "Run Alchemist"
+/*
+ * This task is used to run all experiments in sequence
+ */
+val runAll by tasks.register<DefaultTask>("runAll") {
+    group = alchemistGroup
+    description = "Launches all simulations"
+}
+/*
+ * Scan the folder with the simulation files, and create a task for each one of them.
+ */
+File(rootProject.rootDir.path + "/src/main/yaml").listFiles()
+    .filter { it.extension == "yml" } // pick all yml files in src/main/yaml
+    .sortedBy { it.nameWithoutExtension } // sort them, we like reproducibility
+    .forEach {
+        val task by tasks.register<JavaExec>("run${it.nameWithoutExtension.capitalize()}") {
+            group = alchemistGroup // This is for better organization when running ./gradlew tasks
+            description = "Launches simulation ${it.nameWithoutExtension}" // Just documentation
+            main = "it.unibo.alchemist.Alchemist" // The class to launch
+            classpath = sourceSets.main.get().runtimeClasspath // The classpath to use
+            val exportsDir = File("${projectDir.path}/build/exports/${it.nameWithoutExtension}")
+            doFirst {
+                if (!exportsDir.exists()) {
+                    exportsDir.mkdirs()
+                }
+            }
+            args("-y", it.absolutePath)
+            args("-e", "$exportsDir/${it.nameWithoutExtension}-${System.currentTimeMillis()}")
+            outputs.dir(exportsDir)
+        }
+        runAll.dependsOn(task)
+    }
