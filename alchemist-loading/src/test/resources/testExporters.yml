@@ -1,0 +1,4 @@
+incarnation: protelis
+export:
+  - exporter: { type: CSVExporter, parameters: ["/my/folder/name/"] }
+  - exporter: { type: MongoDBExporter, parameters: ["127.0.0.1:8080"] }
