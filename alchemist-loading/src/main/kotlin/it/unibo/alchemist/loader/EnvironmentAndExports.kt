@@ -20,6 +20,5 @@ import it.unibo.alchemist.model.interfaces.Position
 data class EnvironmentAndExports<T, P : Position<P>>(
     override val environment: Environment<T, P>,
 
-    override val  exporters: Set<GenericExporter>
-   // override val dataExtractors: List<Extractor>,
+    override val  exporters: List<GenericExporter<T,P>>
 ) : InitializedEnvironment<T, P>

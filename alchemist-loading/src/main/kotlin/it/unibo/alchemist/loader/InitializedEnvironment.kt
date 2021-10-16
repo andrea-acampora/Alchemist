@@ -26,9 +26,7 @@ interface InitializedEnvironment<T, P : Position<P>> {
     val environment: Environment<T, P>
 
     /**
-     * The data extractors for this environment.
+     * The data exporters for this environment.
      */
-    //val dataExtractors: List<Extractor>
-
-    val exporters: Set<GenericExporter>
+    val exporters: List<GenericExporter<T,P>>
 }
