@@ -12,16 +12,20 @@ package it.unibo.alchemist.loader.export
 import it.unibo.alchemist.model.interfaces.Position
 
 /**
- * A generic exporter for the simulation.
+ * TODO.
+ * @param url TODO
  */
-interface GenericExporter<T, P : Position<P>> {
+class MongoDBExporter<T, P : Position<P>>(val url: String) : GenericExporter<T, P> {
 
-    fun setupExportEnvironment()
+    override fun setupExportEnvironment() {
+        TODO("Not yet implemented")
+    }
 
-    /**
-     * Main method used by exporters to export data.
-     */
-    fun exportData()
+    override fun exportData() {
+        TODO("Not yet implemented")
+    }
 
-    fun closeExportEnvironment()
+    override fun closeExportEnvironment() {
+        TODO("Not yet implemented")
+    }
 }
