@@ -29,4 +29,8 @@ class CSVExporter<T, P : Position<P>>(val filename: String) : GenericExporter<T,
     override fun closeExportEnvironment() {
         TODO("Not yet implemented")
     }
+
+    override fun bindData(dataExtractor: List<Extractor>) {
+        TODO("Not yet implemented")
+    }
 }
