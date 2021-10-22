@@ -16,9 +16,19 @@ import it.unibo.alchemist.model.interfaces.Position
  */
 interface GenericExporter<T, P : Position<P>> {
 
+    /**
+     *  The List of [Extractor] used to export simulations data.
+     */
+    var dataExtractor: List<Extractor>
+
+    /**
+     * Assign the list of [Extractor] to the selected [GenericExporter].
+     */
     fun bindData(dataExtractor: List<Extractor>)
 
-
+    /**
+     *  Prepare the export environment before the simulation starts.
+     */
     fun setupExportEnvironment()
 
     /**
@@ -26,5 +36,8 @@ interface GenericExporter<T, P : Position<P>> {
      */
     fun exportData()
 
+    /**
+     * Used by the [GenericExporter] to stop the export in a correct way.
+     */
     fun closeExportEnvironment()
 }

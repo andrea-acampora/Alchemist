@@ -19,7 +19,7 @@ import it.unibo.alchemist.model.interfaces.Time
  *  The intermediate between exporters and OutputMonitor interface.
  *  @param exporters TODO
  */
-class GlobalExporter<T, P : Position<P>> (val exporters: List<GenericExporter<T, P>>) : OutputMonitor<T, P> {
+class GlobalExporter<T, P : Position<P>> (private val exporters: List<GenericExporter<T, P>>) : OutputMonitor<T, P> {
 
     override fun initialized(environment: Environment<T, P>?) {
         exporters.forEach() {

@@ -15,7 +15,7 @@ import it.unibo.alchemist.model.interfaces.Position
  * TODO.
  * @param url TODO
  */
-class MongoDBExporter<T, P : Position<P>>(val url: String) : GenericExporter<T, P> {
+class MongoDBExporter<T, P : Position<P>>(val url: String) : AbstractExporter<T, P>() {
 
     override fun setupExportEnvironment() {
         TODO("Not yet implemented")

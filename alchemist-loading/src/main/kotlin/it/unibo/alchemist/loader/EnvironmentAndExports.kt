@@ -20,6 +20,6 @@ data class EnvironmentAndExports<T, P : Position<P>>(
 
     override val environment: Environment<T, P>,
 
-    override val exporters: List<GenericExporter<T,P>>
+    override val exporters: List<GenericExporter<T, P>>
 
 ) : InitializedEnvironment<T, P>
