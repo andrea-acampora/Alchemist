@@ -11,7 +11,6 @@ package it.unibo.alchemist.test
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.ints.shouldBeExactly
 import io.kotest.matchers.ints.shouldBeGreaterThan
-import io.kotest.matchers.shouldBe
 import it.unibo.alchemist.loader.InitializedEnvironment
 import it.unibo.alchemist.loader.LoadAlchemist
 import io.kotest.matchers.shouldNotBe
@@ -29,5 +28,12 @@ class TestExportersCreation<T, P : Position<P>> : StringSpec({
         val initialized: InitializedEnvironment<T, P> = loader.getDefault()
         val exporters: List<GenericExporter<T, P>> = initialized.exporters
         exporters.size shouldBeExactly 2
+        exporters.forEach {
+            it shouldNotBe null
+        }
+
+        exporters.forEach {
+            it.dataExtractor.size shouldBeGreaterThan 0
+        }
     }
 })
