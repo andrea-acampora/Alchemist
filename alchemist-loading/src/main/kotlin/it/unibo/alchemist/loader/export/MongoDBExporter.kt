@@ -9,7 +9,10 @@
 
 package it.unibo.alchemist.loader.export
 
+import it.unibo.alchemist.model.interfaces.Environment
 import it.unibo.alchemist.model.interfaces.Position
+import it.unibo.alchemist.model.interfaces.Reaction
+import it.unibo.alchemist.model.interfaces.Time
 
 /**
  * TODO.
@@ -17,15 +20,15 @@ import it.unibo.alchemist.model.interfaces.Position
  */
 class MongoDBExporter<T, P : Position<P>>(val url: String) : AbstractExporter<T, P>() {
 
-    override fun setupExportEnvironment() {
+    override fun setupExportEnvironment(environment: Environment<T, P>?) {
         TODO("Not yet implemented")
     }
 
-    override fun exportData() {
+    override fun exportData(environment: Environment<T, P>?, reaction: Reaction<T>?, time: Time?, step: Long) {
         TODO("Not yet implemented")
     }
 
-    override fun closeExportEnvironment() {
+    override fun closeExportEnvironment(environment: Environment<T, P>?, time: Time?, step: Long) {
         TODO("Not yet implemented")
     }
 }
