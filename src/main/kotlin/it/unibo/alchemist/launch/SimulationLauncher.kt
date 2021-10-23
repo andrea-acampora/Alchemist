@@ -70,7 +70,7 @@ abstract class SimulationLauncher : AbstractLauncher() {
     ): Simulation<T, P> {
         val initialized: InitializedEnvironment<T, P> = loader.getWith(variables)
         val simulation = Engine(initialized.environment, DoubleTime(parameters.endTime))
-        if(initialized.exporters.isNotEmpty()){
+        if (initialized.exporters.isNotEmpty()) {
             simulation.addOutputMonitor(GlobalExporter(initialized.exporters))
         }
         return simulation

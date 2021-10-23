@@ -36,7 +36,6 @@ class CSVExporter<T, P : Position<P>>(val filename: String) : AbstractExporter<T
         const val SEPARATOR = "#####################################################################"
     }
     private val sampleSpace: Double = 1.0
-    private val header: String? = null
     private var out: PrintStream? = null
     private var count = -1L // The 0th should be sampled
 
@@ -49,9 +48,6 @@ class CSVExporter<T, P : Position<P>>(val filename: String) : AbstractExporter<T
         out!!.print(isoTime.format(Date()))
         out!!.println(" #")
         out!!.println(SEPARATOR)
-        out!!.print("# ")
-        out!!.println(header)
-        out!!.println("#")
         out!!.println("# The columns have the following meaning: ")
         out!!.print("# ")
         dataExtractor.stream()
