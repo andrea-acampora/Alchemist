@@ -344,7 +344,7 @@ internal object SimulationModel {
         when {
             root is Map<*, *> && DocumentRoot.Export.Exporter.validateDescriptor(root) -> {
                 val exporter = visitBuilding<GenericExporter<T, P>>(context, root)
-                                ?.getOrThrow() ?: cantBuildWith<GenericExporter<T, P>>(root)
+                    ?.getOrThrow() ?: cantBuildWith<GenericExporter<T, P>>(root)
                 val dataExtractors = visitRecursively(context, root[DocumentRoot.Export.Exporter.data]) {
                     visitExportData(incarnation, context, it)
                 }

@@ -131,7 +131,8 @@ internal abstract class LoadingSystem(
             }
             // EXPORTS
             val exporters = SimulationModel.visitRecursively<GenericExporter<T, P>>(
-                                            context, root.getOrEmpty(DocumentRoot.export)) {
+                context, root.getOrEmpty(DocumentRoot.export)
+            ) {
                 SimulationModel.visitSingleExporter(incarnation, context, it)
             }
             return EnvironmentAndExports(environment, exporters)
