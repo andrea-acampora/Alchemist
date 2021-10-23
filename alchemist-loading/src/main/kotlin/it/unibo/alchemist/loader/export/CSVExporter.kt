@@ -15,6 +15,7 @@ import it.unibo.alchemist.model.interfaces.Environment
 import it.unibo.alchemist.model.interfaces.Position
 import it.unibo.alchemist.model.interfaces.Reaction
 import it.unibo.alchemist.model.interfaces.Time
+import java.io.File
 import java.io.PrintStream
 import java.text.SimpleDateFormat
 import java.util.Arrays
@@ -40,7 +41,11 @@ class CSVExporter<T, P : Position<P>>(val filename: String) : AbstractExporter<T
     private var count = -1L // The 0th should be sampled
 
     override fun setupExportEnvironment(environment: Environment<T, P>?) {
-        out = PrintStream(filename, Charsets.UTF_8.name())
+        val directory = File("build/exports/")
+        if (!directory.exists()) {
+            directory.mkdirs()
+        }
+        out = PrintStream(directory.toString() + filename, Charsets.UTF_8.name())
         out!!.println(SEPARATOR)
         out!!.print("# Alchemist log file - simulation started at: ")
         val isoTime = SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ", Locale.US)

@@ -18,7 +18,7 @@ seeds: { simulation: *seed, scenario: *scenario_seed}
 export:
   - exporter:
       type: CSVExporter
-      parameters: ["prova.txt"]
+      parameters: ["test_csv.csv"]
       data:
         - time
         - molecule: "default_module:default_program"
