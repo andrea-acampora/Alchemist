@@ -32,8 +32,9 @@ internal fun withMongo(operation: () -> Unit) {
     if (System.getProperty("os.name").lowercase().contains("win")) {
         logger.warn("Testing with MongoDB is disabled on Windows due to flaky behavior")
     } else {
+        val latestMongoStableVersion = Version.Main.values().last()
         val mongodConfig: ImmutableMongodConfig = MongodConfig.builder()
-            .version(Version.Main.PRODUCTION)
+            .version(latestMongoStableVersion)
             .net(Net("localhost", 27017, Network.localhostIsIPv6()))
             .build()
         val detectedDistribution = Distribution.detectFor(mongodConfig.version())
